@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+<script type="text/javascript" th:src="@{webjars/jquery/3.2.1/jquery.js}"></script>
+<script type="text/javascript"></script>
+
+<script type="text/javascript">
+ 
+</script>
+
+</head>
+<body>
+	
+		
+		<form action="/change">
+		<input type="submit" value="增加用户" />
+	 	</form>
+  
+	
+ 	 <table>
+        <thead>
+            <tr>
+                <th>用户名</th>
+                <th>年龄</th>
+                <th>id</th>
+                <th>性别</th>
+                <th>操作</th>
+            </tr>
+            <tr th:each="user:${users}">
+                <td th:text="${user.value.name}"></td>
+                <td th:text="${user.value.age}"></td>
+                <td th:text="${user.value.id}"></td>
+                <td th:text="${user.value.sex}"></td>
+                <td><a th:href="@{/change(id=${user.value.id})}">编辑</a></td>
+                 <!-- <a href="comments.html" 
+         th:href="@{/product/comments(prodId=${prod.id})}" 
+         th:if="${not #lists.isEmpty(prod.comments)}">view</a> -->
+            </tr>
+        </thead>
+    </table>  
+   
+</body>
+</html>
